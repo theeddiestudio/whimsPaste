@@ -23,7 +23,7 @@ const NoteCard = ({note , setNotes}) => {
 
     return (
         <Link to={`/notes/${note._id}`}>
-            <div className="card bg-base-100 w-96 shadow-sm">
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
                 <div className="card-body">
                     <h2 className="card-title">
                     <span className='truncate min-w-0'>{note.title}</span>

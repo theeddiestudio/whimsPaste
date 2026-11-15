@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react'
 import AddNoteBtn from './AddNoteBtn'
 import LoginBtn from './LoginBtn'
 import {user} from '../lib/axios.js'
+import ShowMore from './ShowMore.jsx'
+import HiddenContents from './HiddenContents.jsx'
 
 const Navbar = () => {
 
   const [logged, setLogged] = useState(false);
+  const [shown, setShown] = useState(true); 
 
   useEffect(() => {
     const checkLogins = async () => {
@@ -25,12 +28,14 @@ const Navbar = () => {
         <div className='mx-auto p-4 max-w-6xl'>
             <div className='flex justify-between'>
                 <a className="text-2xl text-amber-900 font-mono tracking-tighter font-medium cursor-pointer">WhimsPaste</a>
-                <div>
+                <div className='hidden sm:block'>
                   <AddNoteBtn />
                   {logged ? <LoginBtn type={"out"} /> : <LoginBtn />}
                 </div>
+                <ShowMore status={shown} setShown={setShown} />
             </div>
         </div>
+        {shown && <HiddenContents logged={logged} />}
     </div>
   )
 }
