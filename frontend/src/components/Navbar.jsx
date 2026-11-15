@@ -8,7 +8,7 @@ import HiddenContents from './HiddenContents.jsx'
 const Navbar = () => {
 
   const [logged, setLogged] = useState(false);
-  const [shown, setShown] = useState(true); 
+  const [shown, setShown] = useState(false); 
 
   useEffect(() => {
     const checkLogins = async () => {
